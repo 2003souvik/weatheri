@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>weatheri</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <style>
+    body {
+      content: "";
+      
+      background: url('back.jpg') no-repeat center center/cover;
+      
+      
+      width: 100%;
+      z-index: -1;
+      opacity: 1;
+    }
+    .card-header h4
+    {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color:brown;
+    }
+    .card-header
+    {
+      background-color: rgb(187, 216, 80);
+    }
+    
+    .list-unstyled
+    {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      color:rgb(12, 12, 12);
+    }
+    .t
+    {
+      background: url("tem.jpg");
+    }
+    .h
+    {
+      background: url("hu.jpg");
+      height: 50%;
+      
+    }
+    .w
+    {
+      background: url("background.jpg");
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Weatheri</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="sub">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="my-5 text-center">Weather for <span id="cityname"></span></h1>
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Temperatures(°C)</h4>
+            </div>
+            <div class="card-body t">
+              <h1 class="card-title pricing-card-title"><small class="text-muted fw-light"></small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Temperature : <span id="temp"></span></li>
+                <!-- <li>Minimium Temperature : <span id="min_temp"></span></li>
+                <li>Maximum Temperature : <span id="max_temp"></span></li> -->
+                <li>Feels like : <span id="feels_like"></span></li>
+
+
+              </ul>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Humidity(%)</h4>
+            </div>
+            <div class="card-body h">
+              <h1 class="card-title pricing-card-title"><small class="text-muted fw-light"></small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Cloud Pct : <span id="cloud_pct"></span></li>
+                <!-- <li>Feels like : <span id="feels_like"></span></li> -->
+                <li> Humidity : <span id="humidity"></span></li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm ">
+            <div class="card-header py-3 ">
+              <h4 class="my-0 fw-normal">Wind Speed(km/hr)</h4>
+            </div>
+            <div class="card-body w">
+              <h1 class="card-title pricing-card-title"><small class="text-muted fw-light"></small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Wind speed : <span id="wind_speed"></span></li>
+                <!-- <li>Wind Degree : <span id="wind_degrees"></span></li> -->
+                <!-- <li>Sunrise : <span id="sunrise"></span></li>
+                      <li>Sunset : <span id="sunset"></span></li> -->
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <h2 class="display-6 text-center mb-4">Common places weather</h2>
+        
+            <div class="table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th style="width: 34%;"></th>
+                    <th style="width: 22%;">cloud_pct</th>
+                    <th style="width: 22%;">feels_like</th>
+                    <th style="width: 22%;">humidity</th>
+                    <th style="width: 22%;">max_temp</th>
+                    <th style="width: 22%;">min_temp</th>
+                    <th style="width: 22%;">sunrise</th>
+                    <th style="width: 22%;">sunset</th>
+                    <th style="width: 22%;">temp</th>
+                    <th style="width: 22%;">wind_degrees</th>
+                    <th style="width: 22%;">wind_speed</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start">Kolkata</th>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Delhi</th>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                </tbody>
+        
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start">Mumbai</th>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Chennai</th>
+                    <td></td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Hyderabad</th>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Sikkim</th>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> -->
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
